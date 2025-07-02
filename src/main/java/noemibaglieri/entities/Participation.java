@@ -13,7 +13,7 @@ public class Participation {
     private UUID participationId;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     @ManyToOne
