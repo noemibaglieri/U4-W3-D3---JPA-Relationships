@@ -3,7 +3,6 @@ package noemibaglieri.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -26,9 +25,6 @@ public class Person {
     private LocalDate dateOfBirth;
 
     private char sex;
-
-    @OneToMany(mappedBy = "participationId")
-    private List<Participation> listOfParticipations;
 
     public Person() {}
 
@@ -74,10 +70,6 @@ public class Person {
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
-    }
-
-    public List<Participation> getListOfParticipations() {
-        return listOfParticipations;
     }
 
     @Override

@@ -35,7 +35,7 @@ public class Event {
     private Location location;
 
     @OneToMany
-    @JoinColumn(name = "participants", nullable = false)
+    @JoinColumn(name = "participants")
     private List<Person> allParticipants;
 
     public Event() {}
