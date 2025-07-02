@@ -19,8 +19,8 @@ public class Location {
     @Column(name = "location_city")
     private String city;
 
-    @OneToOne(mappedBy = "location")
-    private Event event;
+    @OneToMany(mappedBy = "location")
+    private List<Event> events;
 
     public Location() {}
 
@@ -29,8 +29,8 @@ public class Location {
         this.city = city;
     }
 
-    public Event getEvent() {
-        return event;
+    public List<Event> getEvents() {
+        return events;
     }
 
     public String getCity() {
@@ -53,13 +53,5 @@ public class Location {
         return id;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                ", events=" + event +
-                '}';
-    }
+
 }

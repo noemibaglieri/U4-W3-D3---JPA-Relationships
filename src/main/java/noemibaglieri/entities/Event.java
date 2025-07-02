@@ -3,6 +3,7 @@ package noemibaglieri.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -29,18 +30,23 @@ public class Event {
     @Column(name = "max_participants", nullable = false)
     private int maxParticipants;
 
-    @OneToOne
-    @JoinColumn(name = "location", nullable = false, unique = true)
+    @ManyToOne
+    @JoinColumn(name = "location", nullable = false)
     private Location location;
+
+    @OneToMany
+    @JoinColumn(name = "participants", nullable = false)
+    private List<Person> allParticipants;
 
     public Event() {}
 
-    public Event(String title, LocalDate eventDate, String description, EventType eventType, int maxParticipants) {
+    public Event(String title, LocalDate eventDate, String description, EventType eventType, int maxParticipants, Location location) {
         this.title = title;
         this.eventDate = eventDate;
         this.description = description;
         this.eventType = eventType;
         this.maxParticipants = maxParticipants;
+        this.location = location;
     }
 
     public long getId() {
